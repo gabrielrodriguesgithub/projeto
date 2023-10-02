@@ -86,11 +86,15 @@ body * {
   z-index: 1;
   transform: translateY(-50%);
   left: 0;
+  animation: slide-out .2s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in .2s forwards;
+}
+
+#switch button:hover{
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -103,6 +107,8 @@ body * {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
 }
+
+
 
 /*links*/
 ul {
@@ -171,4 +177,22 @@ footer {
 
   .light {
     --bg-url: url(./assets/assets/bg-desktop-light.jpg);
+  }
+
+  /* keyframes */ 
+  @keyframes slide-in {
+    from{
+        left: 0;
+    }
+    to{
+      left: 50%;
+    }
+  }
+  @keyframes slide-out {
+    from{
+      left: 50%;
+    }
+    to{
+      left: 0;
+    }
   }
